@@ -38,6 +38,14 @@ function loadPokemonItems(offset, limit) {
 
 loadPokemonItems(offset, limit);
 
+/*
+- Levar dados do array de pokemon para a página de detalhes do pokémon
+
+  - Descobrir por quê o load não está funcionando h
+	- Criar event listener nos li's
+	- Mandar dados pelo event listener
+*/
+
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
 
@@ -53,8 +61,8 @@ loadMoreButton.addEventListener("click", () => {
 });
 
 function addPokemonClickListener() {
-  const pokemonLi = document.querySelector("pokemon")
-  console.log(pokemonLi)
+  const pokemonLi = document.querySelector(".pokemon");
+  console.log("Tag '</li>':", pokemonLi);
   pokemonLi.addEventListener("click", (event) => {
     console.log(event.target);
   });
