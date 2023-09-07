@@ -7,6 +7,10 @@ body {
     background-color: #f6f8fc;
 }
 
+a {
+    text-decoration: none;
+}
+
 .content {
     height: 100vh;
     padding: 1rem;
