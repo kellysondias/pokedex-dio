@@ -36,18 +36,7 @@ function loadPokemonItems(offset, limit) {
   });
 }
 
-function addPokemonClickListener() {
-  pokemonList.addEventListener("click", (event) => {
-    if (event.target.classList.contains("pokemon")) {
-      const clickedPokemon = event.target;
-      console.log(clickedPokemon);
-    }
-  });
-}
-
 loadPokemonItems(offset, limit);
-
-window.addEventListener("load", addPokemonClickListener);
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
@@ -62,3 +51,13 @@ loadMoreButton.addEventListener("click", () => {
     loadMoreButton.parentElement.removeChild(loadMoreButton);
   } else loadPokemonItems(offset, limit);
 });
+
+function addPokemonClickListener() {
+  const pokemonLi = document.querySelector("pokemon")
+  console.log(pokemonLi)
+  pokemonLi.addEventListener("click", (event) => {
+    console.log(event.target);
+  });
+}
+
+window.addEventListener("load", addPokemonClickListener);
