@@ -6,10 +6,12 @@ let offset = 0;
 const limit = 10;
 
 function loadPokemonItems(offset, limit) {
-  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-    const pokemonItems = pokemons
-      .map((pokemon) => {
-        return `
+  pokeApi
+    .getPokemons(offset, limit)
+    .then((pokemons = []) => {
+      const pokemonItems = pokemons
+        .map((pokemon) => {
+          return `
         <li class="pokemon ${pokemon.type}">
          <a href="#"> 
           <span class="number">#${pokemon.number}</span>
@@ -29,11 +31,15 @@ function loadPokemonItems(offset, limit) {
          </a>
         </li>
       `;
-      })
-      .join("");
+        })
+        .join("");
 
-    pokemonList.innerHTML += pokemonItems;
-  });
+      pokemonList.innerHTML += pokemonItems;
+    })
+    .then(() => {
+      const pokemonLi = document.querySelector(".pokemon");
+      console.log("Tag '</li>':", pokemonLi);
+    });
 }
 
 loadPokemonItems(offset, limit);
@@ -59,13 +65,3 @@ loadMoreButton.addEventListener("click", () => {
     loadMoreButton.parentElement.removeChild(loadMoreButton);
   } else loadPokemonItems(offset, limit);
 });
-
-function addPokemonClickListener() {
-  const pokemonLi = document.querySelector(".pokemon");
-  console.log("Tag '</li>':", pokemonLi);
-  pokemonLi.addEventListener("click", (event) => {
-    console.log(event.target);
-  });
-}
-
-window.addEventListener("load", addPokemonClickListener);
