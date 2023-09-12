@@ -13,7 +13,7 @@ function loadPokemonItems(offset, limit) {
         .map((pokemon) => {
           return `
         <li class="pokemon ${pokemon.type}">
-         <a href="#"> 
+         <a href="pokemon.html"> 
           <span class="number">#${pokemon.number}</span>
           <span class="name">${pokemon.name}</span>
           <div class="detail">
@@ -35,10 +35,17 @@ function loadPokemonItems(offset, limit) {
         .join("");
 
       pokemonList.innerHTML += pokemonItems;
+      return pokemons;
     })
-    .then(() => {
-      const pokemonLi = document.querySelector(".pokemon");
-      console.log("Tag '</li>':", pokemonLi);
+    .then((pokemons) => {
+      const pokemonListItems = Array.from(
+        pokemonList.getElementsByTagName("a")
+      );
+      pokemonListItems.forEach((pokemonLi) => {
+        pokemonLi.addEventListener("click", () =>
+          pokemons.forEach(loadPokemonDetail)
+        );
+      });
     });
 }
 
