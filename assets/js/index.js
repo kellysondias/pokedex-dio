@@ -12,16 +12,7 @@ function loadPokemonItems(offset, limit) {
       const pokemonItems = pokemons
         .map((pokemon) => {
           return `
-        <a
-            href="pokemon-profile.html"
-            onclick="setPokemonProfile(
-                          '${pokemon.number}'
-                          , '${pokemon.name}'
-                          ,'${pokemon.image}'
-                          , '${pokemon.types}'
-                        )
-                    "
-        >
+        <a href="pokemon-profile.html">
         <li class="pokemon ${pokemon.type}">
           <span class="number">#${pokemon.number}</span>
           <span class="name">${pokemon.name}</span>
@@ -46,7 +37,7 @@ function loadPokemonItems(offset, limit) {
       return pokemons;
     })
     .then((pokemons = []) => {
-      /*const links = Array.from(document.getElementsByTagName("a"));
+      const links = Array.from(document.getElementsByTagName("a"));
       links.forEach((link) =>
         link.addEventListener("click", () =>
           pokemons.forEach((pokemon) => {
@@ -59,7 +50,7 @@ function loadPokemonItems(offset, limit) {
           }
           )
         )
-      );*/
+      );
     });
 }
 
