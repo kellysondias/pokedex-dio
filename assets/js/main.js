@@ -10,27 +10,32 @@ function loadPokemonItems(offset, limit) {
     const pokemonItems = pokemons
       .map((pokemon) => {
         return `
-        <li class="pokemon ${pokemon.type}" onclick="setPokemonProfile(
-          '${pokemon.number}'
-          , '${pokemon.name}'
-          ,'${pokemon.image}'
-          , '${pokemon.types}')
-          ">
+        <a
+            href="pokemon-profile.html"
+            onclick="setPokemonProfile(
+                          '${pokemon.number}'
+                          , '${pokemon.name}'
+                          ,'${pokemon.image}'
+                          , '${pokemon.types}'
+                        )
+                    "
+        >
+        <li class="pokemon ${pokemon.type}">
           <span class="number">#${pokemon.number}</span>
           <span class="name">${pokemon.name}</span>
           <div class="detail">
             <ul class="types">
-             ${pokemon.types
-               .map(
-                 (type) => `
+              ${pokemon.types
+                .map(
+                  (type) => `
               <li class="type ${type}">${type}</li>
-             `
-               )
-               .join("")}
+              `
+                )
+                .join("")}
             </ul>
             <img src="${pokemon.image}" alt="${pokemon.name}" />
-          </div>
-        </li>
+          </div></li
+      ></a>
       `;
       })
       .join("");
@@ -39,7 +44,12 @@ function loadPokemonItems(offset, limit) {
     return pokemons;
   });
 }
-
+/*onclick="setPokemonProfile(
+          '${pokemon.number}'
+          , '${pokemon.name}'
+          ,'${pokemon.image}'
+          , '${pokemon.types}')
+          " */
 loadPokemonItems(offset, limit);
 
 /*
