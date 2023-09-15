@@ -12,7 +12,7 @@ function loadPokemonItems(offset, limit) {
       const pokemonItems = pokemons
         .map((pokemon) => {
           return `
-        <li class="pokemon ${pokemon.type}" onclick="goToProfile(
+        <li class="pokemon ${pokemon.type}" onclick="setPokemonProfile(
           '${pokemon.number}'
           , '${pokemon.name}'
           ,'${pokemon.image}'
