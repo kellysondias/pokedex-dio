@@ -44,21 +44,8 @@ function loadPokemonItems(offset, limit) {
     return pokemons;
   });
 }
-/*onclick="setPokemonProfile(
-          '${pokemon.number}'
-          , '${pokemon.name}'
-          ,'${pokemon.image}'
-          , '${pokemon.types}')
-          " */
+
 loadPokemonItems(offset, limit);
-
-/*
-- Levar dados do array de pokemon para a página de detalhes do pokémon
-
-  - Descobrir por quê o load não está funcionando
-	- Criar event listener nos li's
-	- Mandar dados pelo event listener
-*/
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
