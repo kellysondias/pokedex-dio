@@ -6,12 +6,10 @@ let offset = 0;
 const limit = 10;
 
 function loadPokemonItems(offset, limit) {
-  pokeApi
-    .getPokemons(offset, limit)
-    .then((pokemons = []) => {
-      const pokemonItems = pokemons
-        .map((pokemon) => {
-          return `
+  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+    const pokemonItems = pokemons
+      .map((pokemon) => {
+        return `
         <li class="pokemon ${pokemon.type}" onclick="setPokemonProfile(
           '${pokemon.number}'
           , '${pokemon.name}'
@@ -34,22 +32,12 @@ function loadPokemonItems(offset, limit) {
           </div>
         </li>
       `;
-        })
-        .join("");
+      })
+      .join("");
 
-      pokemonList.innerHTML += pokemonItems;
-      return pokemons;
-    })
-    .then((pokemons) => {
-      const pokemonListItems = Array.from(
-        pokemonList.getElementsByTagName("a")
-      );
-      pokemonListItems.forEach((pokemonLi) => {
-        pokemonLi.addEventListener("click", () =>
-          pokemons.forEach(loadPokemonDetail)
-        );
-      });
-    });
+    pokemonList.innerHTML += pokemonItems;
+    return pokemons;
+  });
 }
 
 loadPokemonItems(offset, limit);
