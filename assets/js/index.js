@@ -41,7 +41,6 @@ function loadPokemonItems(offset, limit) {
       .join("");
 
     pokemonList.innerHTML += pokemonItems;
-    return pokemons;
   });
 }
 
