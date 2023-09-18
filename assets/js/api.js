@@ -1,6 +1,7 @@
 const pokeApi = {};
 
 function convertPokeApiDetailToPokemon(pokeDetail) {
+  console.log(pokeDetail)
   const pokemon = new Pokemon();
   pokemon.number = pokeDetail.id;
   pokemon.name = pokeDetail.name;
@@ -42,7 +43,6 @@ const setPokemonProfile = (
   image,
   stringTypes,
   abilities,
-  habitat
 ) => {
   const iterableTypes = stringTypes.split(",");
   const pokemon = { number, name, image, iterableTypes, abilities, habitat };

@@ -1,6 +1,6 @@
 const root = document.getElementById("root");
 
-// Colocar: habitat, shape, height, weight
+// Colocar: habitat (species), shape (species), height, weight
 
 const loadPokemonProfile = () => {
   pokeApi.getPokemonProfile().then((pokemon) => {
