@@ -3,9 +3,9 @@ const pokemonData = JSON.parse(sessionStorage.getItem("pokemon"));
 const pokemonProfile = new Pokemon(pokemonData.types);
 
 pokeApi.getPokemonProfile = () => {
-  const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.number}`;
+  const aboutUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.number}`;
 
-  return fetch(url)
+  return fetch(aboutUrl)
     .then((response) => response.json())
     .then((about) => {
       pokemonProfile.number = pokemonData.number;
