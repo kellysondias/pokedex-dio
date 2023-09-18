@@ -11,8 +11,6 @@ const getEngAbout = (texts) => {
   return flavor_text
 };
 
-// Colocar: habitat, shape, height, weight, abilities
-
 pokeApi.getPokemonProfile = () => {
   const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.number}`;
 

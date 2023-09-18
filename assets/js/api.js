@@ -13,7 +13,9 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
   pokemon.image = pokeDetail.sprites.other["official-artwork"].front_default;
 
-  pokemon.abilities = pokeDetail.sprites.other.front_default;
+  pokemon.abilities = pokeDetail.abilities.map(
+    (abilitySlot) => abilitySlot.ability.name
+  );
 
   return pokemon;
 }
@@ -34,8 +36,15 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
     .then((pokemonsDetails) => pokemonsDetails);
 };
 
-const setPokemonProfile = (number, name, image, stringTypes) => {
+const setPokemonProfile = (
+  number,
+  name,
+  image,
+  stringTypes,
+  abilities,
+  habitat
+) => {
   const iterableTypes = stringTypes.split(",");
-  const pokemon = { number, name, image, iterableTypes };
+  const pokemon = { number, name, image, iterableTypes, abilities, habitat };
   sessionStorage.setItem("pokemon", JSON.stringify(pokemon));
 };

@@ -1,23 +1,23 @@
 const root = document.getElementById("root");
 
+// Colocar: habitat, shape, height, weight
+
 const loadPokemonProfile = () => {
-  pokeApi
-    .getPokemonProfile()
-    .then(({ name, number, image, about, type, types, abilities }) => {
-      console.log(abilities)
-      const pokemonProfile = `
-            <div class="${type}">
-              <h1 style="color:#000;">${name}<h1>
-              ${number}
+  pokeApi.getPokemonProfile().then((pokemon) => {
+    console.log("HABITAT:",pokemon.habitat);
+    const pokemonProfile = `
+            <div class="${pokemon.type}">
+              <h1 style="color:#000;">${pokemon.name}<h1>
+              ${pokemon.number}
               </br></br>
-              ${about}
+              ${pokemon.about}
               </br></br>
-              ${types}
-              <img src="${image}" alt="${name}'s appearance" />
+              ${pokemon.types}
+              <img src="${pokemon.image}" alt="${pokemon.name}'s appearance" />
             </div>
         `;
-      root.innerHTML += pokemonProfile;
-    });
+    root.innerHTML += pokemonProfile;
+  });
 };
 
 loadPokemonProfile();
