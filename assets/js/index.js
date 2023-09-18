@@ -18,6 +18,8 @@ function loadPokemonItems(offset, limit) {
                           ,'${pokemon.image}'
                           , '${pokemon.types}'
                           , '${pokemon.abilities}'
+                          , '${pokemon.weight}'
+                          , '${pokemon.height}'
                         )
                     "
         >

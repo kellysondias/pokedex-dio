@@ -1,7 +1,6 @@
 const pokeApi = {};
 
 function convertPokeApiDetailToPokemon(pokeDetail) {
-  console.log(pokeDetail)
   const pokemon = new Pokemon();
   pokemon.number = pokeDetail.id;
   pokemon.name = pokeDetail.name;
@@ -17,6 +16,9 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.abilities = pokeDetail.abilities.map(
     (abilitySlot) => abilitySlot.ability.name
   );
+
+  pokemon.weight = pokeDetail.weight;
+  pokemon.height = pokeDetail.height;
 
   return pokemon;
 }
@@ -35,16 +37,4 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
     .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
     .then((detailRequests) => Promise.all(detailRequests))
     .then((pokemonsDetails) => pokemonsDetails);
-};
-
-const setPokemonProfile = (
-  number,
-  name,
-  image,
-  stringTypes,
-  abilities,
-) => {
-  const iterableTypes = stringTypes.split(",");
-  const pokemon = { number, name, image, iterableTypes, abilities, habitat };
-  sessionStorage.setItem("pokemon", JSON.stringify(pokemon));
 };

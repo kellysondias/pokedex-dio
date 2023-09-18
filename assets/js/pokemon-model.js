@@ -5,6 +5,9 @@ class Pokemon {
     type;
     image;
     abilities;
+    weight;
+    height;
+    shape;
     habitat;
     about;
 }
