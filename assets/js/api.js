@@ -31,3 +31,9 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
     .then((detailRequests) => Promise.all(detailRequests))
     .then((pokemonsDetails) => pokemonsDetails);
 };
+
+const setPokemonProfile = (number, name, image, stringTypes) => {
+  const iterableTypes = stringTypes.split(",");
+  const pokemon = { number, name, image, iterableTypes };
+  sessionStorage.setItem("pokemon", JSON.stringify(pokemon));
+};
