@@ -1,19 +1,31 @@
 const pokemonData = JSON.parse(sessionStorage.getItem("pokemon"));
 
-const pokemonProfile = new Pokemon(pokemonData.types);
+const pokemonProfile = new Pokemon();
+
+const getEngAbout = (texts) => {
+  const engTexts = texts.filter(({ language }) => language.name === "en");
+  const flavorTexts = engTexts.map((flavorText) => flavorText.flavor_text)
+
+  const [flavor_text] = flavorTexts
+
+  return flavor_text
+};
+
+// Colocar: habitat, shape, height, weight, abilities
 
 pokeApi.getPokemonProfile = () => {
-  const aboutUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.number}`;
+  const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonData.number}`;
 
-  return fetch(aboutUrl)
+  return fetch(speciesUrl)
     .then((response) => response.json())
-    .then((about) => {
-      pokemonProfile.number = pokemonData.number;
+    .then(({ flavor_text_entries }) => {
       pokemonProfile.name = pokemonData.name;
-      pokemonProfile.image = pokemonData.image;
-      pokemonProfile.type = pokemonData.iterableTypes[0];
+      pokemonProfile.number = pokemonData.number;
       pokemonProfile.types = pokemonData.iterableTypes;
-      pokemonProfile.about = about.flavor_text_entries[0].flavor_text      ;
+      pokemonProfile.type = pokemonData.iterableTypes[0];
+      pokemonProfile.image = pokemonData.image;
+      pokemonProfile.abilities = pokemonData.abilities;
+      pokemonProfile.about = getEngAbout(flavor_text_entries);
       return pokemonProfile;
     });
 };

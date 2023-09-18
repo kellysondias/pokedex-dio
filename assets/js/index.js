@@ -17,6 +17,7 @@ function loadPokemonItems(offset, limit) {
                           , '${pokemon.name}'
                           ,'${pokemon.image}'
                           , '${pokemon.types}'
+                          , '${pokemon.abilities}'
                         )
                     "
         >

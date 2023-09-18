@@ -13,6 +13,8 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
   pokemon.image = pokeDetail.sprites.other["official-artwork"].front_default;
 
+  pokemon.abilities = pokeDetail.sprites.other.front_default;
+
   return pokemon;
 }
 

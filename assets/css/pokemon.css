@@ -1,0 +1,71 @@
+.normal {
+  background: linear-gradient(to top, #bcbcaf 20%, #d7d7cc 100%);
+}
+
+.grass {
+  background: linear-gradient(to top, #49d0b0 20%, #65e2cb 100%);
+}
+
+.fire {
+  background: linear-gradient(to top, #ff6265 20%, #fe8587 100%);
+}
+
+.water {
+  background: linear-gradient(to top, #559edf 20%, #7cc2e8 100%);
+}
+
+.electric {
+  background: linear-gradient(to top, #f7d220 20%, #f7e174 100%);
+}
+
+.poison {
+  background: linear-gradient(to top, #ca45c3 20%, #dd7ad8 100%);
+}
+
+.flying {
+  background: linear-gradient(to top, #9e8fc5 20%, #c0a9fa 100%);
+}
+
+.bug {
+  background: linear-gradient(to top, #84e245 20%, #a8fc70 100%);
+}
+
+.ground {
+  background: linear-gradient(to top, #dfbf60 20%, #f5da89 100%);
+}
+
+.ice {
+  background: linear-gradient(to top, #73d1cf 20%, #91e7e6 100%);
+}
+
+.rock {
+  background: linear-gradient(to top, #b9a208 20%, #d5c367 100%);
+}
+
+.dragon {
+  background: linear-gradient(to top, #8e55a8 20%, #a36cbd 100%);
+}
+
+.dark {
+  background: linear-gradient(to top, #725a4a 20%, #8e7564 100%);
+}
+
+.ghost {
+  background: linear-gradient(to top, #71599a 20%, #8e75b8 100%);
+}
+
+.fighting {
+  background: linear-gradient(to top, #d84742 20%, #ec6560 100%);
+}
+
+.steel {
+  background: linear-gradient(to top, #9090c9 20%, #ababd6 100%);
+}
+
+.fairy {
+  background: linear-gradient(to top, #f88fbe 20%, #f9b1d2 100%);
+}
+
+.psychic {
+  background: linear-gradient(to top, #d8527c 20%, #f56d98 100%);
+}
