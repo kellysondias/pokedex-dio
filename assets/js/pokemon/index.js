@@ -4,7 +4,7 @@ const root = document.getElementById("root");
 
 const loadPokemonProfile = () => {
   pokeApi.getPokemonProfile().then((pokemon) => {
-    console.log("HABITAT:",pokemon.habitat);
+    console.log("HABITAT:", pokemon.habitat);
     const pokemonProfile = `
             <div class="${pokemon.type}">
               <h1 style="color:#000;">${pokemon.name}<h1>
